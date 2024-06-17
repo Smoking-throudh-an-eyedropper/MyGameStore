@@ -1,0 +1,70 @@
+﻿<Window x:Class="MyGameStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyGameStore"
+        xmlns:ZUI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        Background="Transparent"
+        AllowsTransparency="True"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen" 
+        d:DesignHeight="375" d:DesignWidth="375" Width="375" Height="375">
+    <Border BorderThickness="1" CornerRadius="15" Background="#FF282828">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+            <ZUI:FlatButton x:Name="FlatButtonClose" Grid.Row="0" Width="20" Height="20" CornerRadius="7.5"
+                Background="#FF417D3C" MouseOverBackground="#FF32AB32" PressedBackground="#FF417D3C"
+                Content="X" Click="FlatButtonClose_Click" HorizontalAlignment="Right" FontFamily="Comic Sans MS"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Padding="0.25,0.25,0,0" Margin="0,0,15,0"/>
+            <ZUI:FlatButton x:Name="FlatButtonMinimize" Grid.Row="0" Width="20" Height="20" CornerRadius="7.5"
+                Background="#FF417D3C" MouseOverBackground="#FF32AB32" PressedBackground="#FF417D3C"
+                Content="-" Click="FlatButtonMinimize_Click" FontFamily="Comic Sans MS" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,45,0"/>
+            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Lato" Margin="10,0,75,0">
+                <TextBlock Text="Вход / регистрация" Foreground="White" FontSize="18"/>
+            </Label>
+            <StackPanel Grid.Row="1" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="7.5"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <ZUI:ZTextBox x:Name="ZTextBoxEmail" Grid.Column="3" CornerRadius="10" Background="#FF323232" BorderBrush="#FF4B4B4B" 
+                        SelectionTextBrush="#FF417D3C" SelectionBrush="#FF32AB32" Foreground="White" FontFamily="Lato" 
+                        FontSize="16" Padding="2.5,0,2.5,0"/>
+                    <Label Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Lato">
+                        <TextBlock Text="эл. почта" Foreground="White" FontSize="16"/>
+                    </Label>
+                </Grid>
+                <Grid Height="10"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="7.5"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <ZUI:ZPasswordBox x:Name="ZPasswordBoxPassword" Grid.Column="2" CornerRadius="10" FontFamily="Lato" FontSize="16" IconBackground="#FF373737" IconForeground="Gray" 
+                        Background="#FF323232" BorderBrush="#FF4B4B4B" Foreground="White" SelectionBrush="#FF32AB32"/>
+                    <Label Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Lato">
+                        <TextBlock Text="пароль" Foreground="White" FontSize="16"/>
+                    </Label>
+                </Grid>
+            </StackPanel>
+            <ZUI:FlatButton x:Name="FlatButtonEnter" Grid.Row="2" HorizontalAlignment="Right" Width="110" Height="35" Margin="10,0,10,0" Background="#FF417D3C"
+                Content="Войти" FontFamily="Lato" FontSize="16" CornerRadius="15" Foreground="White" MouseOverBackground="#FF32AB32"
+                PressedBackground="#FF417D3C" Click="FlatButtonEnter_Click"/>
+            <ZUI:FlatButton x:Name="FlatButtonRegistration" Grid.Row="2" HorizontalAlignment="Left" Width="110" Height="35" Margin="10,0,10,0" Background="#FF417D3C"
+                Content="Регистрация" FontFamily="Lato" FontSize="16" CornerRadius="15" Foreground="White" MouseOverBackground="#FF32AB32"
+                PressedBackground="#FF417D3C" Click="FlatButtonRegistration_Click"/>
+        </Grid>
+    </Border>
+</Window>

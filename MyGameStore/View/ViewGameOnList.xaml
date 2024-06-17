@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="MyGameStore.View.ViewGameOnList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyGameStore.View"
+             xmlns:ZUI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             Background="Transparent"
+             mc:Ignorable="d" Width="325" Height="325" BorderBrush="Transparent" Foreground="Transparent">
+    <ZUI:FlatButton x:Name="ButtonGame" Click="ButtonGame_Click" Grid.Row="2" Background="{x:Null}" BorderBrush="{x:Null}"
+        Foreground="{x:Null}" MouseOverBackground="{x:Null}" PressedBackground="{x:Null}" Margin="12.5,12.5,12.5,12.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Width="300" Height="300" BorderThickness="1" CornerRadius="15" Background="#FF282828">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7.5"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="7.5"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7.5"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="7.5"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="7.5"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="1" Grid.Column="1" BorderThickness="1" CornerRadius="15" ClipToBounds="True">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ImageGame}" Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+                <Border Grid.Row="3" Grid.Column="1" Background="#FF417D3C" BorderThickness="1" CornerRadius="15">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.1*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Lato" FontSize="18" Margin="10,0,0,0">
+                            <TextBlock x:Name="TextBlockNameGame" Text="{Binding NameGame}" Foreground="White"/>
+                        </Label>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="3" VerticalAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Lato" FontSize="14" Margin="0,0,10,0">
+                                <TextBlock x:Name="TextBlockPrice" Text="{Binding Price}" Foreground="White"/>
+                            </Label>
+                            <Label Grid.Column="2" VerticalAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Lato" FontSize="14" Margin="0,0,10,0">
+                                <TextBlock x:Name="TextBlockDiscountedPrice" Text="{Binding DiscountedPrice}" TextDecorations="Strikethrough" Foreground="White"/>
+                            </Label>
+                            <Grid Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.05*"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="0.05*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.075*"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="0.075*"/>
+                                </Grid.RowDefinitions>
+                                <Border Background="#FF32AB32" Grid.Column="1" Grid.Row="1" BorderThickness="1" CornerRadius="15"/>
+                                <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Panel.ZIndex="1" HorizontalAlignment="Center" FontFamily="Lato" FontWeight="Bold">
+                                    <TextBlock x:Name="TextBlockDiscounted" Text="{Binding Discounted}" Foreground="White" FontSize="14"/>
+                                </Label>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </ZUI:FlatButton>
+</UserControl>

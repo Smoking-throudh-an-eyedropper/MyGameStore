@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="MyGameStore.View.ViewHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyGameStore.View"
+             xmlns:ZUI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+                          mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1250">
+    <Grid Background="#FF232323">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Lato" Margin="10,0,0,0" HorizontalAlignment="Center">
+                <TextBlock Text="Game Store" Foreground="White" FontSize="50"/>
+            </Label>
+            <ZUI:ZScrollViewer Height="450" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ListBox ItemsSource="{Binding GamesList}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <local:ViewGameOnList/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.Resources>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Name="Border" Background="Transparent" BorderBrush="Transparent">
+                                            <ContentPresenter />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="Transparent"/>
+                                                <Setter TargetName="Border" Property="BorderBrush" Value="Transparent"/>
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="Transparent"/>
+                                                <Setter TargetName="Border" Property="BorderBrush" Value="Transparent"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Style>
+                    </ListBox.Resources>
+                </ListBox>
+            </ZUI:ZScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>
+

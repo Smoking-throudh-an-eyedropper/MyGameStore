@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="MyGameStore.View.ViewListGames"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyGameStore.View"
+             xmlns:ZUI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1000">
+    <Grid Background="#FF232323">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="85"/>
+                </Grid.ColumnDefinitions>
+                <ZUI:ZTextBox x:Name="ZTextBoxSearch" Grid.Column="0" CornerRadius="15" Background="#FF323232" BorderBrush="#FF4B4B4B" SelectionTextBrush="#FF417D3C" SelectionBrush="#FF32AB32" Foreground="White" FontFamily="Lato" FontSize="16" Padding="2.5,0,2.5,0"/>
+                <ZUI:FlatButton x:Name="FlatButtonSearch" Click="FlatButtonSearch_Click" Grid.Column="2" Width="85" HorizontalAlignment="Right" Background="#FF417D3C"
+                    Content="Поиск" FontFamily="Lato" FontSize="16" CornerRadius="15" Foreground="White" MouseOverBackground="#FF32AB32"
+                    PressedBackground="#FF417D3C" />
+            </Grid>
+            <ZUI:ZScrollViewer Grid.Row="1" Margin="0,10,0,0">
+                <ItemsControl ItemsSource="{Binding GamesList}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="975" Orientation="Horizontal" ItemHeight="375" ItemWidth="375" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ViewGameOnList/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ZUI:ZScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

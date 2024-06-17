@@ -1,0 +1,21 @@
+﻿<Window x:Class="MyGameStore.PrimaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyGameStore.View"
+        Background="Transparent"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
+        d:DesignHeight="1000" d:DesignWidth="1500">
+    <Grid Background="#FF232323">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <local:ViewListActions x:Name="ViewListActions" Grid.Column="0"/>
+        <Grid x:Name="Grid" Grid.Column="1">
+            <local:ViewHome x:Name="ViewHome" Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</Window>

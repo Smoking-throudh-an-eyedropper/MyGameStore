@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="MyGameStore.View.ViewAccount"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyGameStore.View"
+             xmlns:ZUI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FF232323">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" VerticalAlignment="Top" Height="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderThickness="1" CornerRadius="50" ClipToBounds="True">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ImageAccount}" Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+                <Label Grid.Column="3" VerticalAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Lato" Margin="10,0,0,0">
+                    <TextBlock x:Name="TextBlockAccount" Text="" Foreground="White" FontSize="28"/>
+                </Label>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Width="245" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ZUI:FlatButton x:Name="FlatButtonMyProfile" Click="FlatButtonMyProfile_Click" Grid.Row="0" Background="{x:Null}" BorderBrush="{x:Null}"
+                        Foreground="{x:Null}" MouseOverBackground="{x:Null}" PressedBackground="{x:Null}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="35" Grid.Column="0"/>
+                            <Label Grid.Column="3" VerticalAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Lato">
+                                <TextBlock Text="мой профиль" Foreground="White" FontSize="18"/>
+                            </Label>
+                        </Grid>
+                    </ZUI:FlatButton>
+                    <Grid Height="10"/>
+                    <ZUI:FlatButton x:Name="FlatButtonConfidentiality" Click="FlatButtonConfidentiality_Click" Grid.Row="0" Background="{x:Null}" BorderBrush="{x:Null}"
+                        Foreground="{x:Null}" MouseOverBackground="{x:Null}" PressedBackground="{x:Null}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="35" Grid.Column="0"/>
+                            <Label Grid.Column="3" VerticalAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Lato">
+                                <TextBlock Text="конфеденциальность" Foreground="White" FontSize="18"/>
+                            </Label>
+                        </Grid>
+                    </ZUI:FlatButton>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
